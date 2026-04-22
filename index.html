@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roy Betser</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --surface: #ffffff;
+      --surface-2: #f0f4f8;
+      --text: #16202a;
+      --muted: #5f6b76;
+      --line: #d9e1e8;
+      --accent: #0f5ea8;
+      --accent-2: #153a66;
+      --shadow: 0 10px 30px rgba(20, 35, 60, 0.08);
+      --maxw: 1120px;
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+      background: linear-gradient(180deg, #f9fbfd 0%, #f3f6fa 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--maxw));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(246, 248, 251, 0.88);
+      border-bottom: 1px solid rgba(217, 225, 232, 0.85);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--accent-2);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.96rem;
+    }
+
+    .hero {
+      padding: 72px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #e9f2fb;
+      color: var(--accent-2);
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.2rem, 5vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      color: #102030;
+    }
+
+    .subtitle {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 0 24px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .chip {
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      font-size: 0.93rem;
+      color: var(--accent-2);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .button.primary:hover {
+      background: #0c4f8d;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      background: var(--surface);
+      color: var(--accent);
+    }
+
+    .button.secondary:hover {
+      background: #eef5fc;
+      text-decoration: none;
+    }
+
+    .portrait-card,
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .portrait-card {
+      padding: 18px;
+    }
+
+    .portrait-placeholder {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 16px;
+      border: 2px dashed #bdd0e2;
+      background:
+        linear-gradient(135deg, rgba(15, 94, 168, 0.08), rgba(21, 58, 102, 0.04)),
+        repeating-linear-gradient(
+          45deg,
+          rgba(15, 94, 168, 0.03),
+          rgba(15, 94, 168, 0.03) 12px,
+          rgba(255,255,255,0.72) 12px,
+          rgba(255,255,255,0.72) 24px
+        );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 20px;
+    }
+
+    section {
+      padding: 22px 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.7rem;
+      letter-spacing: -0.02em;
+      color: #13273c;
+    }
+
+    .section-note {
+      color: var(--muted);
+      font-size: 0.98rem;
+      max-width: 760px;
+    }
+
+    .bio-grid,
+    .two-col,
+    .pub-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .bio-grid { grid-template-columns: 1.25fr 0.95fr; }
+    .two-col { grid-template-columns: 1fr 1fr; }
+    .pub-grid { grid-template-columns: 1fr; }
+
+    .card {
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+      color: var(--accent-2);
+    }
+
+    .card p {
+      margin: 0;
+      color: #243445;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 18px;
+      color: #243445;
+    }
+
+    .bullet-list li + li { margin-top: 10px; }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .project-card h3 {
+      margin: 0;
+      font-size: 1.12rem;
+      color: #12283e;
+    }
+
+    .tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-2);
+      background: #ebf3fb;
+      padding: 6px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .project-card p {
+      margin: 0 0 14px;
+      color: #314152;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .split-feature {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .image-placeholder {
+      min-height: 220px;
+      border-radius: 18px;
+      border: 2px dashed #bfd1e0;
+      background: linear-gradient(180deg, #f5f9fc, #eef4f9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .pub-item {
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .pub-item h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      line-height: 1.4;
+      color: #13273c;
+    }
+
+    .pub-meta {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 10px;
+    }
+
+    .pub-item p {
+      margin: 0 0 12px;
+      color: #2d3e50;
+    }
+
+    .footer {
+      padding: 34px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .bio-grid,
+      .two-col,
+      .research-grid,
+      .split-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .card,
+      .project-card,
+      .pub-item,
+      .portrait-card {
+        padding: 18px;
+      }
+
+      h2 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">Roy Betser</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#industry">Industry</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">PhD Researcher · Senior Researcher in AI Safety, Security, and Trust</div>
+          <h1>Roy Betser</h1>
+          <p class="subtitle">
+            PhD candidate after candidacy exam at the Technion – Israel Institute of Technology, and Senior Researcher at Fujitsu Research of Europe.
+            My work studies the structure of learned representations, with a focus on geometry, Gaussian structure, likelihood-based modeling, and trustworthy AI systems.
+          </p>
+          <div class="hero-meta">
+            <div class="chip">Representation Structure & Geometry</div>
+            <div class="chip">Generated Image & Video Detection</div>
+            <div class="chip">LLM Safety & Policy Compliance</div>
+            <div class="chip">AI Security, Safety & Trust</div>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#publications">View Publications</a>
+            <a class="button secondary" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="portrait-card">
+          <div class="portrait-placeholder">
+            Portrait placeholder<br />
+            Add a professional headshot here
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Bio</h2>
+            <div class="section-note">A concise overview of academic and industrial research directions.</div>
+          </div>
+        </div>
+
+        <div class="bio-grid">
+          <div class="card">
+            <p>
+              I am a researcher working at the intersection of machine learning theory, representation learning, and trustworthy AI.
+              In my PhD work, I study the geometric and probabilistic structure of learned representations, including Gaussian structure induced by contrastive learning,
+              likelihood-based modeling in pretrained vision encoders, and training-free detection of generated images and videos.
+              In parallel, as a Senior Researcher at Fujitsu Research of Europe, I work on AI security, safety, and trust, with projects on LLM policy compliance,
+              safe tool use, and risk mitigation for agentic systems.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Current Focus</h3>
+            <ul class="bullet-list">
+              <li>Geometric structure of representations in contrastive and self-supervised learning.</li>
+              <li>Likelihood-based zero-shot detection of generated images and videos.</li>
+              <li>Shared latent structure across encoders and generators.</li>
+              <li>Policy compliance, tool-risk mitigation, and trustworthy deployment of LLM agents.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container split-feature">
+        <div class="card">
+          <h3>Research Vision</h3>
+          <p>
+            A recurring theme in my work is that modern AI systems often exhibit latent structure that can be made explicit and useful.
+            On the academic side, this appears through Gaussianity, geometry, and likelihood in representation spaces.
+            On the trustworthy AI side, it appears through principled interfaces between models, tools, and policies that improve safety without sacrificing utility.
+          </p>
+        </div>
+        <div class="image-placeholder">
+          Research figure placeholder<br />
+          Add a schematic, teaser, or collage of projects
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>PhD Research</h2>
+            <div class="section-note">
+              Representation structure and geometry, with emphasis on Gaussian structure, likelihoods, and zero-shot detection.
+            </div>
+          </div>
+        </div>
+
+        <div class="research-grid">
+          <article class="project-card">
+            <div class="project-top">
+              <h3>W-CLIP</h3>
+              <span class="tag">Likelihoods in CLIP Space</span>
+            </div>
+            <p>
+              A whitening-based probabilistic view of pretrained CLIP embeddings, enabling a simple likelihood surrogate for images and captions without training.
+              The work connects representation geometry to practical likelihood estimation in foundation models.
+            </p>
+            <div class="project-links">
+              <a href="#">Project link</a>
+              <a href="#">Paper link</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <h3>CLIDE</h3>
+              <span class="tag">Generated Image Detection</span>
+            </div>
+            <p>
+              A general and domain-specific zero-shot detector for generated images based on conditional likelihood.
+              CLIDE adapts the local likelihood model to the domain of the input through conditioning on similar real images.
+            </p>
+            <div class="project-links">
+              <a href="#">Project link</a>
+              <a href="#">Paper link</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <h3>InfoNCE Induces Gaussian Structure</h3>
+              <span class="tag">Theory of Contrastive Learning</span>
+            </div>
+            <p>
+              A theoretical study of why Gaussian structure emerges in contrastive representation learning.
+              The project develops population-level arguments linking alignment, uniformity, and asymptotic Gaussian behavior.
+            </p>
+            <div class="project-links">
+              <a href="#">Project link</a>
+              <a href="#">Paper link</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <h3>UNE</h3>
+              <span class="tag">Universal Normal Embedding</span>
+            </div>
+            <p>
+              A unifying hypothesis that modern encoders and generators interact with a shared approximately Gaussian latent space.
+              The framework aims to explain shared semantic structure across different model families.
+            </p>
+            <div class="project-links">
+              <a href="#">Project link</a>
+              <a href="#">Paper link</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <h3>STALL</h3>
+              <span class="tag">Generated Video Detection</span>
+            </div>
+            <p>
+              A training-free method for detecting generated videos via spatial and temporal likelihoods.
+              By jointly modeling appearance realism and motion consistency, STALL provides robust zero-shot video detection.
+            </p>
+            <div class="project-links">
+              <a href="#">Project link</a>
+              <a href="#">Paper link</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top">
+              <h3>Broader Theme</h3>
+              <span class="tag">Representation Geometry</span>
+            </div>
+            <p>
+              Across these projects, the broader goal is to better understand the geometry of learned representation spaces and to turn that understanding into practical tools for analysis, detection, and interpretation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="industry">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Industry Research</h2>
+            <div class="section-note">
+              AI security, safety, and trust at Fujitsu Research of Europe.
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <h3>Trustworthy LLM Systems</h3>
+            <p>
+              My work in industry focuses on securing and governing modern AI systems, especially LLM-based agents.
+              This includes policy compliance, safe orchestration, and mechanisms that improve reliability in real deployment settings.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Selected Topics</h3>
+            <ul class="bullet-list">
+              <li>LLM policy compliance and behavioral control.</li>
+              <li>CAIR and related work on trustworthy AI system behavior.</li>
+              <li>AgenTRIM: mitigation of tool-related risks in agentic AI.</li>
+              <li>Safety-aware interfaces for tool use, permissions, and risk judgment.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Selected Publications</h2>
+            <div class="section-note">
+              Replace placeholders, adjust venue information if needed, and add links to papers, project pages, or code.
+            </div>
+          </div>
+        </div>
+
+        <div class="pub-grid">
+          <article class="pub-item">
+            <h3>InfoNCE Induces Gaussian Distribution</h3>
+            <div class="pub-meta">Roy Betser, Eyal Gofer, Meir Yossef Levi, Guy Gilboa · ICLR 2026</div>
+            <p>
+              A theoretical analysis showing how Gaussian structure emerges under contrastive objectives, linking alignment, uniformity, and asymptotic behavior in learned representations.
+            </p>
+            <div class="project-links">
+              <a href="#">Paper</a>
+              <a href="#">Project Page</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <h3>Whitened CLIP as a Likelihood Surrogate of Images and Captions</h3>
+            <div class="pub-meta">Roy Betser, Eyal Gofer, Meir Yossef Levi, Guy Gilboa · ICML 2025</div>
+            <p>
+              A training-free probabilistic perspective on CLIP embeddings using whitening, yielding a practical likelihood surrogate with applications to analysis and monitoring.
+            </p>
+            <div class="project-links">
+              <a href="#">Paper</a>
+              <a href="#">Project Page</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <h3>General and Domain-Specific Zero-shot Detection of Generated Images via Conditional Likelihood</h3>
+            <div class="pub-meta">Roy Betser, Eyal Gofer, Meir Yossef Levi, Guy Gilboa · WACV 2026</div>
+            <p>
+              A zero-shot detector that models image realism via conditional likelihood in representation space, improving robustness in both general and domain-specific settings.
+            </p>
+            <div class="project-links">
+              <a href="#">Paper</a>
+              <a href="#">Project Page</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <h3>Training-free Detection of Generated Videos via Spatial-Temporal Likelihoods</h3>
+            <div class="pub-meta">Collaborative project · CVPR 2026</div>
+            <p>
+              A training-free approach for generated video detection that combines spatial realism with temporal consistency through likelihood-based modeling.
+            </p>
+            <div class="project-links">
+              <a href="#">Paper</a>
+              <a href="#">Project Page</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <h3>AgenTRIM: Tool Risk Mitigation for Agentic AI</h3>
+            <div class="pub-meta">Roy Betser et al. · ACL ARR 2026 submission</div>
+            <p>
+              A framework for reducing tool-related risks in LLM agents through offline tool extraction and online least-privilege orchestration with status-aware risk judgment.
+            </p>
+            <div class="project-links">
+              <a href="#">Paper</a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <h3>Additional Projects and Preprints</h3>
+            <div class="pub-meta">Placeholder block</div>
+            <p>
+              Add further papers, workshop publications, preprints, invited talks, or project pages here as needed.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container two-col">
+        <div class="card">
+          <h3>Contact</h3>
+          <p>
+            Email: <a href="mailto:roybe@campus.technion.ac.il">roybe@campus.technion.ac.il</a><br />
+            Affiliation: Technion – Israel Institute of Technology<br />
+            Industry: Fujitsu Research of Europe
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Links</h3>
+          <p>
+            <a href="#">Google Scholar</a><br />
+            <a href="#">GitHub</a><br />
+            <a href="#">LinkedIn</a><br />
+            <a href="#">CV (PDF)</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container small">
+      © 2026 Roy Betser. This page is a single-file HTML template designed for easy editing and deployment.
+    </div>
+  </footer>
+</body>
+</html>

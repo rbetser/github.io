@@ -410,11 +410,7 @@
     <div class="container nav">
       <div class="brand">Roy Betser</div>
       <nav class="nav-links">
-        <a href="#about">About</a>
-        <a href="#research">Research</a>
-        <a href="#industry">Industry</a>
         <a href="#publications">Publications</a>
-        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -426,206 +422,34 @@
           <div class="eyebrow">PhD Researcher · Senior Researcher in AI Safety, Security, and Trust</div>
           <h1>Roy Betser</h1>
           <p class="subtitle">
-            PhD candidate after candidacy exam at the Technion – Israel Institute of Technology, and Senior Researcher at Fujitsu Research of Europe.
-            My work studies the structure of learned representations, with a focus on geometry, Gaussian structure, likelihood-based modeling, and trustworthy AI systems.
-          </p>
-          <div class="hero-meta">
-            <div class="chip">Representation Structure & Geometry</div>
-            <div class="chip">Generated Image & Video Detection</div>
-            <div class="chip">LLM Safety & Policy Compliance</div>
-            <div class="chip">AI Security, Safety & Trust</div>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="#publications">View Publications</a>
-            <a class="button secondary" href="#contact">Contact</a>
+            I am a researcher working at the intersection of machine learning theory, representation learning, and trustworthy AI.
+            As a PhD candidate in the Technion, I study the geometric and probabilistic structure of learned representations. This research area includes the Gaussian structure induced by contrastive learning,
+            likelihood-based modeling in foundation vision encoders, and training-free detection of generated images and videos.
+            In parallel, as a Senior Researcher at Fujitsu Research of Europe, I work on AI security, safety, and trust, with projects on LLM policy compliance,
+            safe tool use, and agent impact ranking for agentic systems. 
+    
+          <div class="hero-actions" style="gap:20px;">
+  
+            <a href="https://www.linkedin.com/in/roy-betser/" target="_blank" title="LinkedIn">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg"
+                   alt="LinkedIn" width="32" />
+            </a>
+          
+            <a href="mailto:rbetser93@gmail.com" title="Email">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg"
+                   alt="Email" width="32" />
+            </a>
+          
+            <a href="https://scholar.google.com/citations?user=o6qgMnkAAAAJ&hl=en" target="_blank" title="Google Scholar">
+              <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googlescholar.svg"
+                   alt="Google Scholar" width="32" />
+            </a>
+          
           </div>
         </div>
 
         <div class="portrait-card">
           <img src="misc/RoyBetser.jpg" alt="Roy Betser" style="width:100%; border-radius:16px;" />
-        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Bio</h2>
-            <div class="section-note">A concise overview of academic and industrial research directions.</div>
-          </div>
-        </div>
-
-        <div class="bio-grid">
-          <div class="card">
-            <p>
-              I am a researcher working at the intersection of machine learning theory, representation learning, and trustworthy AI.
-              In my PhD work, I study the geometric and probabilistic structure of learned representations, including Gaussian structure induced by contrastive learning,
-              likelihood-based modeling in pretrained vision encoders, and training-free detection of generated images and videos.
-              In parallel, as a Senior Researcher at Fujitsu Research of Europe, I work on AI security, safety, and trust, with projects on LLM policy compliance,
-              safe tool use, and risk mitigation for agentic systems.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Current Focus</h3>
-            <ul class="bullet-list">
-              <li>Geometric structure of representations in contrastive and self-supervised learning.</li>
-              <li>Likelihood-based zero-shot detection of generated images and videos.</li>
-              <li>Shared latent structure across encoders and generators.</li>
-              <li>Policy compliance, tool-risk mitigation, and trustworthy deployment of LLM agents.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container split-feature">
-        <div class="card">
-          <h3>Research Vision</h3>
-          <p>
-            A recurring theme in my work is that modern AI systems often exhibit latent structure that can be made explicit and useful.
-            On the academic side, this appears through Gaussianity, geometry, and likelihood in representation spaces.
-            On the trustworthy AI side, it appears through principled interfaces between models, tools, and policies that improve safety without sacrificing utility.
-          </p>
-        </div>
-        <div class="image-placeholder">
-          Research figure placeholder<br />
-          Add a schematic, teaser, or collage of projects
-        </div>
-      </div>
-    </section>
-
-    <section id="research">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>PhD Research</h2>
-            <div class="section-note">
-              Representation structure and geometry, with emphasis on Gaussian structure, likelihoods, and zero-shot detection.
-            </div>
-          </div>
-        </div>
-
-        <div class="research-grid">
-          <article class="project-card">
-            <div class="project-top">
-              <h3>W-CLIP</h3>
-              <span class="tag">Likelihoods in CLIP Space</span>
-            </div>
-            <p>
-              A whitening-based probabilistic view of pretrained CLIP embeddings, enabling a simple likelihood surrogate for images and captions without training.
-              The work connects representation geometry to practical likelihood estimation in foundation models.
-            </p>
-            <div class="project-links">
-              <a href="#">Project link</a>
-              <a href="#">Paper link</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>CLIDE</h3>
-              <span class="tag">Generated Image Detection</span>
-            </div>
-            <p>
-              A general and domain-specific zero-shot detector for generated images based on conditional likelihood.
-              CLIDE adapts the local likelihood model to the domain of the input through conditioning on similar real images.
-            </p>
-            <div class="project-links">
-              <a href="#">Project link</a>
-              <a href="#">Paper link</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>InfoNCE Induces Gaussian Structure</h3>
-              <span class="tag">Theory of Contrastive Learning</span>
-            </div>
-            <p>
-              A theoretical study of why Gaussian structure emerges in contrastive representation learning.
-              The project develops population-level arguments linking alignment, uniformity, and asymptotic Gaussian behavior.
-            </p>
-            <div class="project-links">
-              <a href="#">Project link</a>
-              <a href="#">Paper link</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>UNE</h3>
-              <span class="tag">Universal Normal Embedding</span>
-            </div>
-            <p>
-              A unifying hypothesis that modern encoders and generators interact with a shared approximately Gaussian latent space.
-              The framework aims to explain shared semantic structure across different model families.
-            </p>
-            <div class="project-links">
-              <a href="#">Project link</a>
-              <a href="#">Paper link</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>STALL</h3>
-              <span class="tag">Generated Video Detection</span>
-            </div>
-            <p>
-              A training-free method for detecting generated videos via spatial and temporal likelihoods.
-              By jointly modeling appearance realism and motion consistency, STALL provides robust zero-shot video detection.
-            </p>
-            <div class="project-links">
-              <a href="#">Project link</a>
-              <a href="#">Paper link</a>
-            </div>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top">
-              <h3>Broader Theme</h3>
-              <span class="tag">Representation Geometry</span>
-            </div>
-            <p>
-              Across these projects, the broader goal is to better understand the geometry of learned representation spaces and to turn that understanding into practical tools for analysis, detection, and interpretation.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="industry">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Industry Research</h2>
-            <div class="section-note">
-              AI security, safety, and trust at Fujitsu Research of Europe.
-            </div>
-          </div>
-        </div>
-
-        <div class="two-col">
-          <div class="card">
-            <h3>Trustworthy LLM Systems</h3>
-            <p>
-              My work in industry focuses on securing and governing modern AI systems, especially LLM-based agents.
-              This includes policy compliance, safe orchestration, and mechanisms that improve reliability in real deployment settings.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Selected Topics</h3>
-            <ul class="bullet-list">
-              <li>LLM policy compliance and behavioral control.</li>
-              <li>CAIR and related work on trustworthy AI system behavior.</li>
-              <li>AgenTRIM: mitigation of tool-related risks in agentic AI.</li>
-              <li>Safety-aware interfaces for tool use, permissions, and risk judgment.</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -712,33 +536,9 @@
       </div>
     </section>
 
-    <section id="contact">
-      <div class="container two-col">
-        <div class="card">
-          <h3>Contact</h3>
-          <p>
-            Email: <a href="mailto:roybe@campus.technion.ac.il">roybe@campus.technion.ac.il</a><br />
-            Affiliation: Technion – Israel Institute of Technology<br />
-            Industry: Fujitsu Research of Europe
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Links</h3>
-          <p>
-            <a href="#">Google Scholar</a><br />
-            <a href="#">GitHub</a><br />
-            <a href="#">LinkedIn</a><br />
-            <a href="#">CV (PDF)</a>
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
-
   <footer class="footer">
     <div class="container small">
-      © 2026 Roy Betser. This page is a single-file HTML template designed for easy editing and deployment.
+      © 2026 Roy Betser.
     </div>
   </footer>
 </body>
